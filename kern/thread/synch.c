@@ -158,6 +158,8 @@ lock_create(const char *name)
 
 	// add stuff here as needed
 
+	lock->sem_1 = sem_create("sem_2", 1)
+
 	return lock;
 }
 
@@ -176,7 +178,8 @@ void
 lock_acquire(struct lock *lock)
 {
 	/* Call this (atomically) before waiting for a lock */
-	//HANGMAN_WAIT(&curthread->t_hangman, &lock->lk_hangman);
+	HANGMAN_WAIT(&curthread->t_hangman, &lock->lk_hangman);
+
 
 	// Write this
 
